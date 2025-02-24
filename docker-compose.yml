@@ -1,0 +1,13 @@
+services:
+  my_service:
+    build: .
+    image: canon-cups:latest
+    container_name: canon_cups
+    restart: unless-stopped
+    entrypoint: ["/app/my_entrypoint.sh"]
+    environment:
+      - ENV_VAR=value
+    volumes:
+      - ./:/app/
+    ports:
+      - "631:631"
